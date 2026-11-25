@@ -1,0 +1,470 @@
+================================================================================================
+CGR TRANSCRIPTOMIC BENCHMARK — MASTER DETAILED ANALYSIS SUMMARY
+================================================================================================
+Generated (UTC)         : 2026-11-25 17:26:49 UTC
+Primary CYP2D6 Inhibitor: bupropion
+Prefer Neural Cells     : False
+Include Adhesion/PSD    : False
+Max Sigs per Compound   : 60
+Total Anchor Genes      : 121
+Target Module Genes     : 104
+
+================================================================================================
+1. SYNAPTIC MODULE & LINCS L1000 GENE COVERAGE
+================================================================================================
+Consensus L1000 Matrix  : 12,327 total genes x 9 columns
+Target Module Coverage  : 93 / 104 genes (89.4%)
+Missing Module Genes (11): ACTG1, CALM1, CALM2, PLA2G4B, PLA2G4D, PLA2G4E, PLA2G4F, RPTOR, SHANK3, SLC17A8, SLC38A3
+  - LTP_init      :  67 defined |  58 covered in L1000 (86.6%)
+  - TrkB_mTOR     :  45 defined |  41 covered in L1000 (91.1%)
+  - Actin_spine   :  27 defined |  25 covered in L1000 (92.6%)
+
+================================================================================================
+2. LINCS L1000 SIGNATURE INVENTORY (CELL 3 CORE STACK)
+================================================================================================
+     agent                query  n_found  n_used      cell_mode  n_genes
+       DXM          dextrorphan       12      11 all_cell_lines    12327
+ Piracetam            piracetam       89      59 all_cell_lines    12327
+   CYP2D6i            bupropion      212      60 all_cell_lines    12327
+ Forskolin            forskolin      250      59 all_cell_lines    12327
+   Fisetin              fisetin        2       1 all_cell_lines    12327
+       NAC       acetylcysteine        0       0           none        0
+       DHA docosahexaenoic acid        0       0           none        0
+Citicoline           citicoline        0       0           none        0
+ Glutamine            glutamine       54      53 all_cell_lines    12327
+  Ketamine             ketamine       43      42 all_cell_lines    12327
+
+[MISSING] Agents with 0 retrieved signatures : NAC, DHA, Citicoline
+[LOW-N]   Agents with < 5 signatures used    : Fisetin
+
+================================================================================================
+3. POSTMORTEM BRAIN DISEASE REVERSAL (MORE NEGATIVE = STRONGER REVERSAL)
+================================================================================================
+  - MDD  (data/deg_MDD.csv): 19,055 total genes | 99 module genes | 91 shared w/ L1000
+  - BIP  (data/deg_BIP.csv): 12,110 total genes | 92 module genes | 88 shared w/ L1000
+  - SCZ  (data/deg_SCZ.csv): 12,115 total genes | 92 module genes | 88 shared w/ L1000
+  - OCD  (data/deg_OCD.csv): 541 total genes | 7 module genes | 5 shared w/ L1000  [UNDERPOWERED <10]
+
+--- BIP Reversal Ranking (sorted by reversal_cosine ascending) ---
+disorder           agent  n_module_genes  reversal_cosine  reversal_rho
+     BIP         Fisetin              88          -0.1556       -0.0804
+     BIP             DXM              88          -0.1022       -0.0460
+     BIP        Ketamine              88          -0.1012       -0.1438
+     BIP CGR_NoForskolin              88          -0.0141       -0.0329
+     BIP         CYP2D6i              88          -0.0135       -0.0434
+     BIP   CGR_Composite              88           0.0695        0.0373
+     BIP       Glutamine              88           0.0949        0.0176
+     BIP       Piracetam              88           0.1612        0.1594
+     BIP       Forskolin              88           0.2145        0.1020
+
+--- MDD Reversal Ranking (sorted by reversal_cosine ascending) ---
+disorder           agent  n_module_genes  reversal_cosine  reversal_rho
+     MDD       Glutamine              91          -0.2313       -0.1540
+     MDD         Fisetin              91          -0.0892        0.0459
+     MDD CGR_NoForskolin              91           0.0077        0.0257
+     MDD         CYP2D6i              91           0.0640        0.0321
+     MDD   CGR_Composite              91           0.0664        0.0887
+     MDD       Piracetam              91           0.1286        0.0724
+     MDD       Forskolin              91           0.1481        0.1094
+     MDD        Ketamine              91           0.1854        0.2157
+     MDD             DXM              91           0.1889        0.1830
+
+--- OCD Reversal Ranking (sorted by reversal_cosine ascending) ---
+disorder           agent  n_module_genes  reversal_cosine  reversal_rho
+     OCD             DXM               5              NaN           NaN
+     OCD       Piracetam               5              NaN           NaN
+     OCD         CYP2D6i               5              NaN           NaN
+     OCD       Forskolin               5              NaN           NaN
+     OCD         Fisetin               5              NaN           NaN
+     OCD       Glutamine               5              NaN           NaN
+     OCD        Ketamine               5              NaN           NaN
+     OCD   CGR_Composite               5              NaN           NaN
+     OCD CGR_NoForskolin               5              NaN           NaN
+
+--- SCZ Reversal Ranking (sorted by reversal_cosine ascending) ---
+disorder           agent  n_module_genes  reversal_cosine  reversal_rho
+     SCZ         Fisetin              88          -0.1642       -0.1024
+     SCZ        Ketamine              88          -0.1018       -0.1121
+     SCZ             DXM              88          -0.0936        0.0442
+     SCZ CGR_NoForskolin              88          -0.0242        0.0240
+     SCZ         CYP2D6i              88          -0.0150        0.0238
+     SCZ   CGR_Composite              88           0.0763        0.1170
+     SCZ       Glutamine              88           0.1011        0.0052
+     SCZ       Piracetam              88           0.1262        0.1726
+     SCZ       Forskolin              88           0.2578        0.1515
+
+--- Cross-Disorder Mean Reversal Summary ---
+          agent  disorders_scored  mean_cosine  median_cosine  mean_rho best_disorder  best_cosine
+        Fisetin                 3      -0.1363        -0.1556   -0.0456           SCZ      -0.1642
+      Glutamine                 3      -0.0118         0.0949   -0.0437           MDD      -0.2313
+CGR_NoForskolin                 3      -0.0102        -0.0141    0.0056           SCZ      -0.0242
+       Ketamine                 3      -0.0059        -0.1012   -0.0134           SCZ      -0.1018
+            DXM                 3      -0.0023        -0.0936    0.0604           BIP      -0.1022
+        CYP2D6i                 3       0.0118        -0.0135    0.0042           SCZ      -0.0150
+  CGR_Composite                 3       0.0707         0.0695    0.0810           MDD       0.0664
+      Piracetam                 3       0.1387         0.1286    0.1348           SCZ       0.1262
+      Forskolin                 3       0.2068         0.2145    0.1210           MDD       0.1481
+
+--- Head-to-Head Comparison (CGR_Composite vs. CGR_NoForskolin vs. Ketamine) ---
+  BIP  | CGR_Composite: cos=+0.0695, rho=+0.0373 | CGR_NoForskolin: cos=-0.0141, rho=-0.0329 | Ketamine: cos=-0.1012, rho=-0.1438 | Best: Ketamine
+  MDD  | CGR_Composite: cos=+0.0664, rho=+0.0887 | CGR_NoForskolin: cos=+0.0077, rho=+0.0257 | Ketamine: cos=+0.1854, rho=+0.2157 | Best: CGR_NoForskolin
+  OCD  | CGR_Composite: NaN | CGR_NoForskolin: NaN | Ketamine: NaN | Best: N/A (underpowered)
+  SCZ  | CGR_Composite: cos=+0.0763, rho=+0.1170 | CGR_NoForskolin: cos=-0.0242, rho=+0.0240 | Ketamine: cos=-0.1018, rho=-0.1121 | Best: Ketamine
+
+--- Sub-Module Reversal Breakdown (CGR_Composite, CGR_NoForskolin & Ketamine) ---
+disorder  sub_module           agent  n_genes  cosine  spearman_rho
+     MDD    LTP_init   CGR_Composite       56  0.0721        0.0468
+     MDD    LTP_init CGR_NoForskolin       56  0.0704       -0.0234
+     MDD    LTP_init        Ketamine       56  0.1146        0.1738
+     MDD   TrkB_mTOR   CGR_Composite       39 -0.0253       -0.0294
+     MDD   TrkB_mTOR CGR_NoForskolin       39 -0.1927       -0.1198
+     MDD   TrkB_mTOR        Ketamine       39  0.2129        0.1269
+     MDD Actin_spine   CGR_Composite       25 -0.0717        0.1477
+     MDD Actin_spine CGR_NoForskolin       25 -0.1249        0.0823
+     MDD Actin_spine        Ketamine       25  0.0331        0.1677
+     BIP    LTP_init   CGR_Composite       55  0.0418       -0.0218
+     BIP    LTP_init CGR_NoForskolin       55 -0.0119       -0.0808
+     BIP    LTP_init        Ketamine       55 -0.0662       -0.1842
+     BIP   TrkB_mTOR   CGR_Composite       37 -0.1300       -0.1695
+     BIP   TrkB_mTOR CGR_NoForskolin       37 -0.2584       -0.2598
+     BIP   TrkB_mTOR        Ketamine       37 -0.1480       -0.1892
+     BIP Actin_spine   CGR_Composite       24  0.1541        0.1304
+     BIP Actin_spine CGR_NoForskolin       24  0.0355       -0.0070
+     BIP Actin_spine        Ketamine       24 -0.2987       -0.2052
+     SCZ    LTP_init   CGR_Composite       55  0.0865        0.1137
+     SCZ    LTP_init CGR_NoForskolin       55  0.0127        0.0102
+     SCZ    LTP_init        Ketamine       55 -0.0733       -0.1722
+     SCZ   TrkB_mTOR   CGR_Composite       37 -0.1052       -0.1019
+     SCZ   TrkB_mTOR CGR_NoForskolin       37 -0.2459       -0.2037
+     SCZ   TrkB_mTOR        Ketamine       37 -0.2005       -0.2572
+     SCZ Actin_spine   CGR_Composite       24  0.0614        0.2174
+     SCZ Actin_spine CGR_NoForskolin       24 -0.0490        0.0600
+     SCZ Actin_spine        Ketamine       24 -0.2667       -0.1591
+     OCD    LTP_init   CGR_Composite        5 -0.5809       -0.7000
+     OCD    LTP_init CGR_NoForskolin        5 -0.6636       -0.7000
+     OCD    LTP_init        Ketamine        5 -0.6753       -0.1000
+     OCD   TrkB_mTOR   CGR_Composite        4     NaN           NaN
+     OCD   TrkB_mTOR CGR_NoForskolin        4     NaN           NaN
+     OCD   TrkB_mTOR        Ketamine        4     NaN           NaN
+     OCD Actin_spine   CGR_Composite        3     NaN           NaN
+     OCD Actin_spine CGR_NoForskolin        3     NaN           NaN
+     OCD Actin_spine        Ketamine        3     NaN           NaN
+
+================================================================================================
+4. KETAMINE-MIMICRY ANALYSIS (WITHIN CGR SYNAPTIC MODULES)
+================================================================================================
+          agent  n_shared_mod_genes  ketamine_cosine  ketamine_rho
+      Piracetam                  93           0.1844        0.2332
+            DXM                  93           0.1601        0.1678
+        CYP2D6i                  93           0.1026        0.1214
+  CGR_Composite                  93           0.0718        0.1668
+CGR_NoForskolin                  93           0.0544        0.1788
+      Forskolin                  93           0.0462        0.0079
+        Fisetin                  93          -0.1043        0.0197
+      Glutamine                  93          -0.1677       -0.0783
+
+================================================================================================
+5. PAIRWISE COMPONENT SIMILARITY, SYNERGY & ANTAGONISM
+================================================================================================
+Full Pairwise Cosine Similarity Matrix (inside CGR synaptic modules):
+                    DXM  Piracetam  CYP2D6i  Forskolin  Fisetin  Glutamine  Ketamine  CGR_Composite  CGR_NoForskolin
+DXM              1.0000     0.2919   0.0372    -0.3186   0.0563    -0.2210    0.1601         0.3297           0.4627
+Piracetam        0.2919     1.0000   0.3573    -0.1397   0.0542     0.0236    0.1844         0.5887           0.6543
+CYP2D6i          0.0372     0.3573   1.0000     0.2839  -0.1677     0.2635    0.1026         0.6715           0.5687
+Forskolin       -0.3186    -0.1397   0.2839     1.0000  -0.4141     0.2068    0.0462         0.2374          -0.1593
+Fisetin          0.0563     0.0542  -0.1677    -0.4141   1.0000    -0.0473   -0.1043         0.2104           0.3797
+Glutamine       -0.2210     0.0236   0.2635     0.2068  -0.0473     1.0000   -0.1677         0.5136           0.4391
+Ketamine         0.1601     0.1844   0.1026     0.0462  -0.1043    -0.1677    1.0000         0.0718           0.0544
+CGR_Composite    0.3297     0.5887   0.6715     0.2374   0.2104     0.5136    0.0718         1.0000           0.9212
+CGR_NoForskolin  0.4627     0.6543   0.5687    -0.1593   0.3797     0.4391    0.0544         0.9212           1.0000
+
+--- Ranked Individual CGR Component Pairs (Most Concordant to Most Divergent) ---
+  agent_A   agent_B  cosine_sim
+Piracetam   CYP2D6i      0.3573
+      DXM Piracetam      0.2919
+  CYP2D6i Forskolin      0.2839
+  CYP2D6i Glutamine      0.2635
+Forskolin Glutamine      0.2068
+      DXM   Fisetin      0.0563
+Piracetam   Fisetin      0.0542
+      DXM   CYP2D6i      0.0372
+Piracetam Glutamine      0.0236
+  Fisetin Glutamine     -0.0473
+Piracetam Forskolin     -0.1397
+  CYP2D6i   Fisetin     -0.1677
+      DXM Glutamine     -0.2210
+      DXM Forskolin     -0.3186
+Forskolin   Fisetin     -0.4141
+
+--- Flagged Cancellation Pairs (cosine < -0.25) & Top Opposing Driver Genes ---
+  * Forskolin vs Fisetin (cos=-0.4141) -> GLUL (Forskolin:+3.39, Fisetin:-2.02), GLS (Forskolin:-1.84, Fisetin:+2.91), GRIA2 (Forskolin:+4.10, Fisetin:-1.17), SLC1A1 (Forskolin:+2.58, Fisetin:-1.73), RPS6KA2 (Forskolin:-1.61, Fisetin:+1.33), SLC38A1 (Forskolin:-1.01, Fisetin:+2.07), TP53 (Forskolin:-0.89, Fisetin:+2.33), RAC1 (Forskolin:-2.28, Fisetin:+0.77)
+  * DXM vs Forskolin (cos=-0.3186) -> GRIA2 (DXM:-3.39, Forskolin:+4.10), GLUL (DXM:-2.50, Forskolin:+3.39), SLC1A1 (DXM:-2.01, Forskolin:+2.58), PIP5K1B (DXM:-2.30, Forskolin:+1.46), NTRK2 (DXM:-1.93, Forskolin:+1.55), PAK3 (DXM:+1.11, Forskolin:-1.64), DBN1 (DXM:+2.02, Forskolin:-0.85), PRKACB (DXM:-0.91, Forskolin:+1.57)
+
+================================================================================================
+6. TOP GENE-LEVEL DRIVERS IN CGR SYNAPTIC MODULES
+================================================================================================
+
+--- CGR_Composite: Top 10 Upregulated & Top 10 Downregulated Module Genes ---
+  UPREGULATED:
+    GLUL       :  +3.276  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    ADCY1      :  +2.934  [LTP_init] (Ca2+, cAMP & ERK-CREB Consolidation)
+    PIK3CA     :  +2.295  [TrkB_mTOR;Actin_spine] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    AKT3       :  +1.651  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    TP53       :  +1.548  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    GLS2       :  +1.535  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    RAP1A      :  +1.366  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    CALM3      :  +1.303  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    NLGN1      :  +1.142  [Actin_spine;Adhesion_PSD] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    PLA2G4A    :  +0.938  [LTP_init] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+  DOWNREGULATED:
+    SLC38A2    :  -3.264  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    PAK1       :  -2.925  [Actin_spine] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    CDKN1A     :  -2.381  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    RHEB       :  -1.561  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    PLA2G4C    :  -1.550  [LTP_init] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    ATF4       :  -1.436  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    RPS6KA2    :  -1.288  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    RPS6KA1    :  -1.140  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    BDNF       :  -1.045  [TrkB_mTOR;Adhesion_PSD] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    SLC38A1    :  -1.000  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+
+--- CGR_NoForskolin: Top 10 Upregulated & Top 10 Downregulated Module Genes ---
+  UPREGULATED:
+    ADCY1      :  +3.096  [LTP_init] (Ca2+, cAMP & ERK-CREB Consolidation)
+    PIK3CA     :  +2.608  [TrkB_mTOR;Actin_spine] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    TP53       :  +1.989  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    GLUL       :  +1.955  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    GLS2       :  +1.719  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    NLGN1      :  +1.531  [Actin_spine;Adhesion_PSD] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    AKT3       :  +1.426  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    CALM3      :  +1.386  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    CAMK2B     :  +1.289  [LTP_init;TrkB_mTOR;Actin_spine] (Ca2+, cAMP & ERK-CREB Consolidation)
+    RAP1A      :  +1.198  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+  DOWNREGULATED:
+    SLC38A2    :  -2.979  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    PAK1       :  -2.829  [Actin_spine] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    GRIA2      :  -2.325  [LTP_init] (Glutamate Receptors & Homeostasis)
+    CDKN1A     :  -2.048  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    SLC1A1     :  -2.032  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    RHEB       :  -1.631  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    ATF4       :  -1.623  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+    PIP5K1B    :  -1.362  [Actin_spine] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    NTRK2      :  -1.300  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    MAP2K2     :  -1.148  [LTP_init;TrkB_mTOR;Actin_spine] (Ca2+, cAMP & ERK-CREB Consolidation)
+
+--- Ketamine: Top 10 Upregulated & Top 10 Downregulated Module Genes ---
+  UPREGULATED:
+    CDC42      :  +3.035  [TrkB_mTOR;Actin_spine] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    GRM3       :  +1.890  [LTP_init] (Glutamate Receptors & Homeostasis)
+    SLC1A1     :  +1.500  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    CAMK2B     :  +1.416  [LTP_init;TrkB_mTOR;Actin_spine] (Ca2+, cAMP & ERK-CREB Consolidation)
+    GLS        :  +1.365  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    ACTR3      :  +1.288  [Actin_spine] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    TP53       :  +1.256  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    EIF4E      :  +1.255  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    PRKAA1     :  +1.163  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    NLGN1      :  +1.094  [Actin_spine;Adhesion_PSD] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+  DOWNREGULATED:
+    SLC38A1    :  -2.935  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    ADCY1      :  -2.653  [LTP_init] (Ca2+, cAMP & ERK-CREB Consolidation)
+    CDKN1A     :  -2.404  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    NTRK2      :  -2.355  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    AKT1       :  -2.210  [TrkB_mTOR] (Neurotrophin, PI3K-Akt-mTOR & Bioenergetic Gating)
+    CREBBP     :  -2.156  [LTP_init] (Ca2+, cAMP & ERK-CREB Consolidation)
+    STX4       :  -1.974  [LTP_init] (Glutamate-Glutamine Cycle & Vesicular Release)
+    BCL2L1     :  -1.836  [TrkB_mTOR] (PSD Scaffolds, Trans-Synaptic Adhesion & Senescence/Survival)
+    RAC1       :  -1.607  [TrkB_mTOR;Actin_spine] (Actin Cytoskeleton, Membrane Lipids & Spine Remodeling)
+    RPS6KA2    :  -1.572  [LTP_init;TrkB_mTOR] (Ca2+, cAMP & ERK-CREB Consolidation)
+
+--- CGR_Composite Gene-Level Reversal vs. Exacerbation Drivers per Disorder ---
+
+  [MDD] Top Reversed Genes (opposite sign; most negative product):
+    PIK3CA     | disease=-0.080 | CGR_Composite=+2.295 | prod=-0.183
+    BAD        | disease=-0.091 | CGR_Composite=+0.830 | prod=-0.076
+    AKT2       | disease=-0.079 | CGR_Composite=+0.842 | prod=-0.067
+    PLA2G4A    | disease=-0.056 | CGR_Composite=+0.938 | prod=-0.052
+    SHANK2     | disease=-0.065 | CGR_Composite=+0.727 | prod=-0.047
+    TP53       | disease=-0.029 | CGR_Composite=+1.548 | prod=-0.044
+  [MDD] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    BDNF       | disease=-0.173 | CGR_Composite=-1.045 | prod=+0.181
+    CDKN1A     | disease=-0.056 | CGR_Composite=-2.381 | prod=+0.132
+    SLC38A2    | disease=-0.037 | CGR_Composite=-3.264 | prod=+0.122
+    SLC1A1     | disease=-0.092 | CGR_Composite=-0.895 | prod=+0.082
+    GLUL       | disease=+0.020 | CGR_Composite=+3.276 | prod=+0.067
+
+  [BIP] Top Reversed Genes (opposite sign; most negative product):
+    PLA2G4A    | disease=-0.157 | CGR_Composite=+0.938 | prod=-0.147
+    PIK3CA     | disease=-0.060 | CGR_Composite=+2.295 | prod=-0.138
+    NTRK2      | disease=+0.184 | CGR_Composite=-0.614 | prod=-0.113
+    GLS2       | disease=-0.068 | CGR_Composite=+1.535 | prod=-0.105
+    PLA2G4C    | disease=+0.059 | CGR_Composite=-1.550 | prod=-0.092
+    RPS6KA3    | disease=-0.118 | CGR_Composite=+0.770 | prod=-0.091
+  [BIP] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    GLUL       | disease=+0.123 | CGR_Composite=+3.276 | prod=+0.402
+    PAK1       | disease=-0.118 | CGR_Composite=-2.925 | prod=+0.347
+    SLC38A2    | disease=-0.079 | CGR_Composite=-3.264 | prod=+0.259
+    BDNF       | disease=-0.218 | CGR_Composite=-1.045 | prod=+0.228
+    SLC1A3     | disease=+0.349 | CGR_Composite=+0.285 | prod=+0.099
+
+  [SCZ] Top Reversed Genes (opposite sign; most negative product):
+    PLA2G4A    | disease=-0.163 | CGR_Composite=+0.938 | prod=-0.153
+    NTRK2      | disease=+0.216 | CGR_Composite=-0.614 | prod=-0.132
+    PIK3CA     | disease=-0.043 | CGR_Composite=+2.295 | prod=-0.098
+    GLS2       | disease=-0.062 | CGR_Composite=+1.535 | prod=-0.096
+    SLC1A2     | disease=+0.205 | CGR_Composite=-0.392 | prod=-0.080
+    RPS6KA2    | disease=+0.059 | CGR_Composite=-1.288 | prod=-0.076
+  [SCZ] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    GLUL       | disease=+0.106 | CGR_Composite=+3.276 | prod=+0.346
+    BDNF       | disease=-0.236 | CGR_Composite=-1.045 | prod=+0.247
+    SLC38A2    | disease=-0.063 | CGR_Composite=-3.264 | prod=+0.206
+    PAK1       | disease=-0.064 | CGR_Composite=-2.925 | prod=+0.187
+    GRIN2C     | disease=+0.123 | CGR_Composite=+0.762 | prod=+0.094
+
+  [OCD] Top Reversed Genes (opposite sign; most negative product):
+    CAMK2B     | disease=-0.585 | CGR_Composite=+0.919 | prod=-0.538
+    CAMK2A     | disease=-0.425 | CGR_Composite=+0.906 | prod=-0.385
+    HRAS       | disease=-0.201 | CGR_Composite=-0.072 | prod=+0.014
+    SLC1A2     | disease=-0.150 | CGR_Composite=-0.392 | prod=+0.059
+    DLG4       | disease=-0.560 | CGR_Composite=-0.177 | prod=+0.099
+  [OCD] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    DLG4       | disease=-0.560 | CGR_Composite=-0.177 | prod=+0.099
+    SLC1A2     | disease=-0.150 | CGR_Composite=-0.392 | prod=+0.059
+    HRAS       | disease=-0.201 | CGR_Composite=-0.072 | prod=+0.014
+    CAMK2A     | disease=-0.425 | CGR_Composite=+0.906 | prod=-0.385
+    CAMK2B     | disease=-0.585 | CGR_Composite=+0.919 | prod=-0.538
+
+--- CGR_NoForskolin Gene-Level Reversal vs. Exacerbation Drivers per Disorder ---
+
+  [MDD] Top Reversed Genes (opposite sign; most negative product):
+    PIK3CA     | disease=-0.080 | CGR_NoForskolin=+2.608 | prod=-0.208
+    BAD        | disease=-0.091 | CGR_NoForskolin=+0.782 | prod=-0.071
+    HRAS       | disease=-0.096 | CGR_NoForskolin=+0.730 | prod=-0.070
+    AKT2       | disease=-0.079 | CGR_NoForskolin=+0.744 | prod=-0.059
+    TP53       | disease=-0.029 | CGR_NoForskolin=+1.989 | prod=-0.057
+    CAMK2B     | disease=-0.037 | CGR_NoForskolin=+1.289 | prod=-0.048
+  [MDD] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    SLC1A1     | disease=-0.092 | CGR_NoForskolin=-2.032 | prod=+0.187
+    CDKN1A     | disease=-0.056 | CGR_NoForskolin=-2.048 | prod=+0.114
+    SLC38A2    | disease=-0.037 | CGR_NoForskolin=-2.979 | prod=+0.112
+    PIP5K1B    | disease=-0.063 | CGR_NoForskolin=-1.362 | prod=+0.086
+    NLGN1      | disease=+0.035 | CGR_NoForskolin=+1.531 | prod=+0.054
+
+  [BIP] Top Reversed Genes (opposite sign; most negative product):
+    NTRK2      | disease=+0.184 | CGR_NoForskolin=-1.300 | prod=-0.239
+    PIK3CA     | disease=-0.060 | CGR_NoForskolin=+2.608 | prod=-0.157
+    PLA2G4A    | disease=-0.157 | CGR_NoForskolin=+0.747 | prod=-0.117
+    GLS2       | disease=-0.068 | CGR_NoForskolin=+1.719 | prod=-0.117
+    CAMK2B     | disease=-0.085 | CGR_NoForskolin=+1.289 | prod=-0.109
+    SLC1A2     | disease=+0.232 | CGR_NoForskolin=-0.455 | prod=-0.106
+  [BIP] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    PAK1       | disease=-0.118 | CGR_NoForskolin=-2.829 | prod=+0.335
+    GLUL       | disease=+0.123 | CGR_NoForskolin=+1.955 | prod=+0.240
+    SLC38A2    | disease=-0.079 | CGR_NoForskolin=-2.979 | prod=+0.236
+    SLC1A1     | disease=-0.084 | CGR_NoForskolin=-2.032 | prod=+0.171
+    GRIA2      | disease=-0.067 | CGR_NoForskolin=-2.325 | prod=+0.155
+
+  [SCZ] Top Reversed Genes (opposite sign; most negative product):
+    NTRK2      | disease=+0.216 | CGR_NoForskolin=-1.300 | prod=-0.281
+    PLA2G4A    | disease=-0.163 | CGR_NoForskolin=+0.747 | prod=-0.121
+    PIK3CA     | disease=-0.043 | CGR_NoForskolin=+2.608 | prod=-0.111
+    GLS2       | disease=-0.062 | CGR_NoForskolin=+1.719 | prod=-0.107
+    CAMK2B     | disease=-0.080 | CGR_NoForskolin=+1.289 | prod=-0.103
+    SLC1A2     | disease=+0.205 | CGR_NoForskolin=-0.455 | prod=-0.093
+  [SCZ] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    GLUL       | disease=+0.106 | CGR_NoForskolin=+1.955 | prod=+0.207
+    SLC38A2    | disease=-0.063 | CGR_NoForskolin=-2.979 | prod=+0.188
+    PAK1       | disease=-0.064 | CGR_NoForskolin=-2.829 | prod=+0.181
+    SLC1A1     | disease=-0.059 | CGR_NoForskolin=-2.032 | prod=+0.119
+    GRIA2      | disease=-0.050 | CGR_NoForskolin=-2.325 | prod=+0.116
+
+  [OCD] Top Reversed Genes (opposite sign; most negative product):
+    CAMK2B     | disease=-0.585 | CGR_NoForskolin=+1.289 | prod=-0.755
+    CAMK2A     | disease=-0.425 | CGR_NoForskolin=+0.804 | prod=-0.342
+    HRAS       | disease=-0.201 | CGR_NoForskolin=+0.730 | prod=-0.147
+    SLC1A2     | disease=-0.150 | CGR_NoForskolin=-0.455 | prod=+0.068
+    DLG4       | disease=-0.560 | CGR_NoForskolin=-0.129 | prod=+0.072
+  [OCD] Top Concordant/Exacerbated Genes (same sign; most positive product):
+    DLG4       | disease=-0.560 | CGR_NoForskolin=-0.129 | prod=+0.072
+    SLC1A2     | disease=-0.150 | CGR_NoForskolin=-0.455 | prod=+0.068
+    HRAS       | disease=-0.201 | CGR_NoForskolin=+0.730 | prod=-0.147
+    CAMK2A     | disease=-0.425 | CGR_NoForskolin=+0.804 | prod=-0.342
+    CAMK2B     | disease=-0.585 | CGR_NoForskolin=+1.289 | prod=-0.755
+
+================================================================================================
+7. PER-AGENT GENE-DRIVER ATTRIBUTION & LEAVE-ONE-OUT (LOO) ANALYSIS (CELL 5)
+================================================================================================
+--- Per-Agent Z-Scores, Primary Driver & Counterweight (19 Key Synaptic Genes) ---
+            DXM  Piracetam  CYP2D6i  Forskolin  Fisetin  Glutamine  CGR_Composite  CGR_NoForskolin  Ketamine CGR_dir     Primary_Driver  Driver_Share_%  Top_Counterweight
+CDC42    -1.364      0.184    0.929      0.228   -0.702     -0.864         -0.654           -0.777     3.035    DOWN        DXM (-1.36)            46.6    CYP2D6i (+0.93)
+GRIA2    -3.389     -0.884   -0.543      4.096   -1.172      0.552         -0.552           -2.325    -0.820    DOWN        DXM (-3.39)            56.6  Forskolin (+4.10)
+SLC1A1   -2.008     -1.704    0.396      2.579   -1.727      0.289         -0.895           -2.032     1.500    DOWN        DXM (-2.01)            36.9  Forskolin (+2.58)
+SLC38A2   0.294     -2.442   -1.874     -0.963   -2.212     -0.732         -3.264           -2.979     0.771    DOWN  Piracetam (-2.44)            29.7        DXM (+0.29)
+CDKN1A   -0.370     -1.086   -2.077     -0.994   -0.492     -0.765         -2.381           -2.048    -2.404    DOWN    CYP2D6i (-2.08)            35.9               None
+BDNF     -0.447     -0.138   -0.033     -2.332    0.692     -0.281         -1.045           -0.089    -0.879    DOWN  Forskolin (-2.33)            72.2    Fisetin (+0.69)
+EIF4EBP1  0.659      0.456   -0.745     -0.316   -1.824     -0.403         -0.895           -0.794     0.805    DOWN    Fisetin (-1.82)            55.5        DXM (+0.66)
+ATF4      1.459     -1.928   -1.402      0.307   -0.493     -1.432         -1.436           -1.623    -0.808    DOWN  Piracetam (-1.93)            36.7        DXM (+1.46)
+GLUL     -2.503      1.169    3.328      3.386   -2.023      4.601          3.276            1.955    -0.696      UP  Glutamine (+4.60)            36.9        DXM (-2.50)
+SLC1A3   -0.541      0.321   -0.298      1.049   -0.462      0.623          0.285           -0.153    -0.168      UP  Forskolin (+1.05)            52.6        DXM (-0.54)
+SLC1A2   -1.219      0.154   -0.465      0.113   -0.564      1.030         -0.392           -0.455     0.442    DOWN        DXM (-1.22)            54.2  Glutamine (+1.03)
+PIK3CA    0.129     -0.429    0.578     -0.526    0.145      5.677          2.295            2.608    -0.490      UP  Glutamine (+5.68)            86.9  Forskolin (-0.53)
+AKT3      1.943      0.620   -0.123      0.676    2.177     -1.283          1.651            1.426     0.481      UP    Fisetin (+2.18)            40.2  Glutamine (-1.28)
+GLS2      1.187      1.573    0.595     -0.293   -0.235      0.901          1.535            1.719    -0.548      UP  Piracetam (+1.57)            37.0  Forskolin (-0.29)
+ACTB      1.211      0.729    0.033     -0.205    1.061     -0.783          0.842            0.963     0.297      UP        DXM (+1.21)            39.9  Glutamine (-0.78)
+NLGN1     0.666      0.239    0.875     -0.806    1.431      0.371          1.142            1.531     1.094      UP    Fisetin (+1.43)            40.0  Forskolin (-0.81)
+WASL     -0.305      0.067    0.796      1.026   -0.179      0.769          0.895            0.491     0.413      UP  Forskolin (+1.03)            38.6        DXM (-0.30)
+ADCY1     0.182      1.668    2.534     -0.115    1.458      1.400          2.934            3.096    -2.653      UP    CYP2D6i (+2.53)            35.0  Forskolin (-0.11)
+NTRK2    -1.934     -1.153   -1.150      1.549   -0.419      1.616         -0.614           -1.300    -2.355    DOWN        DXM (-1.93)            41.5  Glutamine (+1.62)
+
+--- Leave-One-Out (LOO) Spotlight Gene Shifts (Δ > 0 means dropping agent lifts gene) ---
+        Raw_Mean_All          Drop_DXM    Drop_Piracetam      Drop_CYP2D6i    Drop_Forskolin      Drop_Fisetin    Drop_Glutamine
+gene                                                                                                                            
+CDC42         -0.265  -0.045 (Δ+0.220)  -0.355 (Δ-0.090)  -0.504 (Δ-0.239)  -0.363 (Δ-0.099)  -0.177 (Δ+0.087)  -0.145 (Δ+0.120)
+GRIA2         -0.224  +0.410 (Δ+0.633)  -0.091 (Δ+0.132)  -0.160 (Δ+0.064)  -1.087 (Δ-0.864)  -0.034 (Δ+0.190)  -0.379 (Δ-0.155)
+SLC1A1        -0.362  -0.033 (Δ+0.329)  -0.094 (Δ+0.268)  -0.514 (Δ-0.152)  -0.951 (Δ-0.588)  -0.090 (Δ+0.273)  -0.493 (Δ-0.130)
+GLUL           1.326  +2.092 (Δ+0.766)  +1.358 (Δ+0.032)  +0.926 (Δ-0.400)  +0.914 (Δ-0.412)  +1.996 (Δ+0.670)  +0.672 (Δ-0.655)
+PIK3CA         0.929  +1.089 (Δ+0.160)  +1.201 (Δ+0.272)  +0.999 (Δ+0.070)  +1.220 (Δ+0.291)  +1.086 (Δ+0.157)  -0.020 (Δ-0.950)
+
+================================================================================================
+8. HEAD-TO-HEAD CYP2D6 INHIBITOR BENCHMARK & SWAP-IN COMPOSITES (CELL 6)
+================================================================================================
+--- A. Standalone CYP2D6 Inhibitor Head-to-Head (sorted by Mean_Rev_cos) ---
+   CYP2D6i sigs_used      cell_mode  Ketamine_cos  MDD_cos  BIP_cos  SCZ_cos  Mean_Rev_cos  CDC42  SLC1A3   GLUL   AKT3   WASL  GRIA2  SLC1A1  NLGN1   BDNF
+ quinidine    60/200 all_cell_lines       -0.0758  -0.0790  -0.0693  -0.0320       -0.0601  0.324  -1.746  3.919 -1.135 -1.275 -1.947   2.772  1.586 -0.264
+ bupropion    60/212 all_cell_lines        0.1026   0.0640  -0.0135  -0.0150        0.0118  0.929  -0.298  3.328 -0.123  0.796 -0.543   0.396  0.875 -0.033
+fluoxetine    60/250 all_cell_lines       -0.0270   0.0991   0.0813   0.0492        0.0765  0.413   0.101 -0.904 -0.397  1.239 -3.311  -0.894 -1.320 -0.380
+paroxetine    60/250 all_cell_lines        0.0349  -0.0632   0.1868   0.2304        0.1180 -0.006   1.358  1.817  1.774 -0.797 -4.744   3.366 -1.178 -0.239
+duloxetine    60/250 all_cell_lines        0.0643   0.1326   0.2909   0.2972        0.2402 -0.690   2.803  4.202  1.841  0.197 -1.124  -2.078 -0.661  0.367
+
+--- B. Swap-In Composite Impact (CGR_Composite & CGR_NoForskolin) ---
+          Stack    CYP2D6i  Ketamine_cos  MDD_cos  BIP_cos  SCZ_cos  Mean_Rev_cos  CDC42  SLC1A3  GLUL  AKT3  GRIA2  SLC1A1  NLGN1   BDNF
+  CGR_Composite  quinidine        0.0063   0.0147   0.0532   0.0763        0.0481 -0.901  -0.310 3.510 1.231 -1.127   0.083  1.431 -1.137
+  CGR_Composite  bupropion        0.0718   0.0664   0.0695   0.0763        0.0707 -0.654   0.285 3.276 1.651 -0.552  -0.895  1.142 -1.045
+  CGR_Composite fluoxetine        0.0266   0.1001   0.1295   0.1223        0.1173 -0.906   0.469 1.604 1.607 -1.768  -1.490  0.250 -1.241
+  CGR_Composite paroxetine        0.0532   0.0158   0.1693   0.1981        0.1277 -1.110   1.032 2.835 2.597 -2.437   0.350  0.317 -1.207
+  CGR_Composite duloxetine        0.0629   0.1028   0.2051   0.2154        0.1744 -1.350   1.596 3.718 2.515 -0.809  -1.957  0.521 -0.900
+CGR_NoForskolin  quinidine       -0.0135  -0.0492  -0.0375  -0.0327       -0.0398 -1.043  -0.777 2.224 1.000 -2.946  -1.024  1.848 -0.188
+CGR_NoForskolin  bupropion        0.0544   0.0077  -0.0141  -0.0242       -0.0102 -0.777  -0.153 1.955 1.426 -2.325  -2.032  1.531 -0.089
+CGR_NoForskolin fluoxetine        0.0045   0.0270   0.0266   0.0024        0.0187 -1.033   0.018 0.151 1.355 -3.635  -2.677  0.614 -0.245
+CGR_NoForskolin paroxetine        0.0324  -0.0461   0.0771   0.0875        0.0395 -1.270   0.599 1.413 2.414 -4.448  -0.823  0.705 -0.190
+CGR_NoForskolin duloxetine        0.0433   0.0422   0.1185   0.1119        0.0909 -1.510   1.206 2.394 2.329 -2.645  -3.176  0.899  0.085
+
+================================================================================================
+9. AUTOMATED METHODOLOGICAL & QC AUDIT FLAGS
+================================================================================================
+  1. MISSING CGR ARMS: NAC, DHA, Citicoline returned 0 LINCS L1000 signatures and are absent from composites.
+  2. SINGLE-SIGNATURE HIGH VARIANCE: Fisetin based on n=1 L1000 signature.
+  3. UNDERPOWERED DEG OVERLAP: OCD shares only 5 genes with L1000 synaptic modules (min_n=10 required).
+
+================================================================================================
+10. GENERATED OUTPUT ARTIFACTS
+================================================================================================
+  - cgr_transcriptomic_benchmark_master_summary.txt      (    35,909 bytes)
+  - l1000_consensus_matrix.csv.gz                        ( 1,061,664 bytes)
+  - results_antagonistic_pairs.csv                       (        75 bytes)
+  - results_cyp2d6i_head2head_agents.csv                 (       762 bytes)
+  - results_cyp2d6i_swap_composites.csv                  (     1,231 bytes)
+  - results_disease_reversal.csv                         (     1,066 bytes)
+  - results_ketamine_and_antagonism_matrix.csv           (       735 bytes)
+  - results_l1000_signature_inventory.csv                (       461 bytes)
+  - results_loo_spotlight_genes.csv                      (       702 bytes)
+  - results_per_agent_gene_drivers.csv                   (     2,123 bytes)

@@ -1,0 +1,11 @@
+agent,query,n_found,n_used,cell_mode,n_genes
+DXM,dextrorphan,12,11,all_cell_lines,12327
+Piracetam,piracetam,89,59,all_cell_lines,12327
+CYP2D6i,bupropion,212,60,all_cell_lines,12327
+Forskolin,forskolin,250,59,all_cell_lines,12327
+Fisetin,fisetin,2,1,all_cell_lines,12327
+NAC,acetylcysteine,0,0,none,0
+DHA,docosahexaenoic acid,0,0,none,0
+Citicoline,citicoline,0,0,none,0
+Glutamine,glutamine,54,53,all_cell_lines,12327
+Ketamine,ketamine,43,42,all_cell_lines,12327
